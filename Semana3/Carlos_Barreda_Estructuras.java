@@ -41,7 +41,7 @@ public class Carlos_Barreda_Estructuras {
                 case 1:
                     System.out.print("Cuantas palabras ingresara?: ");
                     int cantidad = lea.nextInt();
-                    lea.nextLine(); // Limpiar buffer
+                    
 
                     String palabraLarga = "";
 
@@ -133,7 +133,7 @@ public class Carlos_Barreda_Estructuras {
                     System.out.println("Votaciones");
                     System.out.print("Ingrese la cantidad de votantes en el pais: ");
                     votantes = lea.nextInt();
-                    lea.nextLine(); // Limpiar buffer
+                    
 
                     for (int i = 0; i < votantes; i++) {
                         System.out.print("Ingrese su voto (AZUL, AMARILLO, NEGRO, ROJO): ");
