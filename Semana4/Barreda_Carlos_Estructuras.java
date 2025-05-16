@@ -18,11 +18,9 @@ public class Barreda_Carlos_Estructuras {
             System.out.println("(5) Salir");
             System.out.print("Opcion: ");
             opcionMenu = lea.nextInt();
-            
+
             lea.nextLine();
 
-            
-            
             switch (opcionMenu) {
 
                 case 1:
@@ -32,7 +30,7 @@ public class Barreda_Carlos_Estructuras {
 
                     System.out.println("--- CIFRADO CESAR ---");
                     System.out.print("Ingrese la cadena de texto: ");
-                    texto = lea.nextLine(); 
+                    texto = lea.nextLine();
 
                     System.out.print("Ingrese un numero positivo entero para el desplazamiento: ");
                     numCesar = lea.nextInt();
@@ -53,7 +51,26 @@ public class Barreda_Carlos_Estructuras {
                     System.out.println("Frase cifrada: " + textoCifrado);
                     break;
 
-               
+                case 2:
+                    System.out.println("Ingrese una Frase: ");
+                    String Frase = lea.nextLine() + " ";
+
+                    System.out.println("Ingrese el Limite de la palabra a imprimir");
+                    int limite = lea.nextInt();
+
+                    System.out.println("Las palabras que superan el limite de " + limite + " son:");
+                    int inicio = 0;
+                    for (int i = 0; i < Frase.length(); i++) {
+                        if (Frase.charAt(i) == ' ') {
+                            String Palabra_Pasable = Frase.substring(inicio, i);
+                            if (Palabra_Pasable.length() >= limite) {
+                                System.out.println(Palabra_Pasable);
+                            }
+                            inicio = i + 1;
+                        }
+                    }
+                    break;
+
                 case 5:
                     System.out.println("Saliendo del programa");
                     break;
