@@ -15,6 +15,8 @@ public class Barreda_Carlos_Estructuras {
         do {
             System.out.println("\n-- MENU --");
             System.out.println("(1) Cifrado Cesar");
+            System.out.println("(2) Filtrar");
+            System.out.println("(3) Codigo Enigma ");
             System.out.println("(5) Salir");
             System.out.print("Opcion: ");
             opcionMenu = lea.nextInt();
@@ -71,6 +73,78 @@ public class Barreda_Carlos_Estructuras {
                     }
                     break;
 
+                case 3:
+                
+                    int opcion = 0;
+                    String encriptado = "";
+
+                    do {
+                        System.out.println("1. Encriptar texto");
+                        System.out.println("2. Desencriptar texto");
+                        System.out.println("3. Regresar");
+                        System.out.print("Elija una opcion: ");
+                        opcion = lea.nextInt();
+                        lea.nextLine();
+
+                        switch (opcion) {
+                            case 1:
+                                System.out.print("Ingrese un texto: ");
+                                String textoA = lea.nextLine();
+
+                                String cadena_pares = "";
+                                String cadena_impares = "";
+
+                                System.out.print("Posiciones pares: ");
+                                for (int i = 0; i < textoA.length(); i++) {
+                                    if (i % 2 == 0) {
+                                        System.out.print("'" + textoA.charAt(i) + "' ");
+                                        cadena_pares += textoA.charAt(i);
+                                    }
+                                }
+
+                                System.out.println();
+                                System.out.print("Posiciones impares: ");
+                                for (int i = 0; i < textoA.length(); i++) {
+                                    if (i % 2 != 0) {
+                                        System.out.print("'" + textoA.charAt(i) + "' ");
+                                        cadena_impares += textoA.charAt(i);
+                                    }
+                                }
+
+                                encriptado = cadena_pares + cadena_impares;
+                                System.out.println();
+                                System.out.println("Texto encriptado: " + encriptado);
+                                break;
+
+                            case 2:
+                                if (encriptado.isEmpty()) {
+                                    System.out.println("No hay texto encriptado.");
+                                } else {
+                                    int mitad = (encriptado.length() + 1) / 2;
+                                    String pares = encriptado.substring(0, mitad);
+                                    String impares = encriptado.substring(mitad);
+                                    String desencriptado = "";
+
+                                    for (int i = 0; i < encriptado.length(); i++) {
+                                        if (i % 2 == 0 && i / 2 < pares.length()) {
+                                            desencriptado += pares.charAt(i / 2);
+                                        } else if (i % 2 != 0 && i / 2 < impares.length()) {
+                                            desencriptado += impares.charAt(i / 2);
+                                        }
+                                    }
+
+                                    System.out.println("Texto desencriptado: " + desencriptado);
+                                }
+                                break;
+
+                            case 3:
+                                break;
+                        }
+
+                    } while (opcion != 3);
+
+                    break;
+
                 case 5:
                     System.out.println("Saliendo del programa");
                     break;
@@ -79,6 +153,6 @@ public class Barreda_Carlos_Estructuras {
                     System.out.println("Opcion");
             }
 
-        } while (opcionMenu != 5);
+        } while (opcionMenu != 4);
     }
 }
